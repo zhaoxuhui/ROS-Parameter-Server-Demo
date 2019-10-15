@@ -1,0 +1,16 @@
+<launch>
+	<!--param参数配置演示-->
+	<param name="param1" value="1" />
+	<param name="param2" value="2" />
+	<!--rosparam参数配置演示-->
+	<rosparam>   
+        param3: 3
+        param4: 4
+        param5: 5
+    </rosparam>
+	<!--以上写法将参数转成YAML文件加载，注意param前面必须为空格，不能用Tab，否则YAML解析错误-->
+	<!--在launch文件中直接装载参数文件-->
+    <rosparam file="/root/imgs/all_params.yaml" command="load"/>
+	<!--启动的节点信息-->
+	<node pkg="camera_calibration" type="undistortion" name="camera_calibration" output="screen" />
+</launch>
